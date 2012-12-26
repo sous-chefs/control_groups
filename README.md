@@ -24,4 +24,5 @@ the `lackresources` control group.
 Repository:
 -----------
 
-* https://github.com/heavywater/chef-control_groups
+* Repository: https://github.com/hw-cookbooks/control_groups
+* IRC: Freenode @ #heavywater

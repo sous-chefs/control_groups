@@ -6,11 +6,6 @@ end
 
 action :create do
 
-  # check existing
-  if(node[:control_groups][:rules][:active][new_resource.user])
-    raise "Control Groups Rule already exists for user: #{new_resource.user}"
-  end
-
   # create structure
   struct = {
     :controllers => new_resource.controllers,
@@ -32,7 +27,7 @@ action :create do
     end
   end
 
-  node[:control_groups][:rules][:active][new_resource.user] = struct
+  node.set[:control_groups][:rules][:active][new_resource.user] = struct
 end
 
 action :delete do

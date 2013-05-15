@@ -3,7 +3,7 @@ module ControlGroups
 
     def rules_struct_init(node)
       if(node[:control_groups][:rules].nil? || node[:control_groups][:rules][:pid] != Process.pid)
-        node[:control_groups][:rules] = {
+        node.default[:control_groups][:rules] = {
           :active => {},
           :pid => Process.pid
         }
@@ -12,7 +12,7 @@ module ControlGroups
 
     def config_struct_init(node)
       if(node[:control_groups][:config].nil? || node[:control_groups][:config][:pid] != Process.pid)
-        node[:control_groups][:config] = {
+        node.default[:control_groups][:config] = {
           :structure => {},
           :pid => Process.pid,
           :mounts => node[:control_groups][:mounts].to_hash

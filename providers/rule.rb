@@ -1,5 +1,5 @@
 def load_current_resource
-  node.include_recipe 'control_group::default'
+  run_context.include_recipe 'control_groups::default'
   ControlGroups.rules_struct_init(node)
   new_resource.user new_resource.name unless new_resource.user
 end

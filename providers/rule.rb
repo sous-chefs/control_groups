@@ -12,22 +12,19 @@ action :create do
     :destination => new_resource.destination
   }
 
-  unless(node[:control_groups][:config] && node[:control_groups][:config][:structure])
-    raise "Control groups configuration must be defined!"
-  end
-
-  # check for existing destination
-  dest = node[:control_groups][:config][:structure][struct[:destination]]
+  dest = node.run_state[:control_groups][:config][:structure][struct[:destination]]
   raise "Invalid destination provided for rule (dest: #{struct[:destination]})" unless dest
 
   # check for controllers
-  struct[:controllers].map(&:to_s).each do |cont|
+  struct[:controllers].each do |cont|
     unless(dest[cont])
       raise "Invalid controller provided for rule (controller: #{cont})"
     end
   end
 
-  node.set[:control_groups][:rules][:active][new_resource.user] = struct
+  target = [new_resource.user, new_resource.command].compact.join(':')
+  
+  node.run_state[:control_groups][:rules][:active][target] = struct
 end
 
 action :delete do

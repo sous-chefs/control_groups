@@ -2,22 +2,18 @@ module ControlGroups
   class << self
 
     def rules_struct_init(node)
-      if(node[:control_groups][:rules].nil? || node[:control_groups][:rules][:pid] != Process.pid)
-        node[:control_groups][:rules] = {
-          :active => {},
-          :pid => Process.pid
-        }
-      end
+      node.run_state[:control_groups] ||= Mash.new
+      node.run_state[:control_groups][:rules] ||= Mash.new(
+        :active => Mash.new
+      )
     end
 
     def config_struct_init(node)
-      if(node[:control_groups][:config].nil? || node[:control_groups][:config][:pid] != Process.pid)
-        node[:control_groups][:config] = {
-          :structure => {},
-          :pid => Process.pid,
-          :mounts => node[:control_groups][:mounts].to_hash
-        }
-      end
+      node.run_state[:control_groups] ||= Mash.new
+      node.run_state[:control_groups][:config] ||= Mash.new(
+        :structure => Mash.new,
+        :mounts => Mash.new(node[:control_groups][:mounts].to_hash)
+      )
     end
 
     def build_rules(hash)

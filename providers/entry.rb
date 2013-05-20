@@ -6,7 +6,7 @@ end
 
 action :create do
   group_name = new_resource.group.to_s
-  group_struct = Mash.new(node[:control_groups][:config][:structure])
+  group_struct = Mash.new(node.run_state[:control_groups][:config][:structure])
   perm = {}
   %w(task admin).each do |type|
     %w(uid gid).each do |idx|
@@ -25,7 +25,7 @@ action :create do
     end
   end
   group_struct[group_name] = grp_hsh
-  node.set[:control_groups][:config][:structure] = group_struct
+  node.run_state[:control_groups][:config][:structure] = group_struct
 end
 
 action :delete do

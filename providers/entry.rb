@@ -1,10 +1,10 @@
 def load_current_resource
-  node.include_recipe 'control_group::default'
   ControlGroups.config_struct_init(node)
   new_resource.group new_resource.name unless new_resource.group
 end
 
 action :create do
+  run_context.include_recipe 'control_groups'
   group_name = new_resource.group.to_s
   group_struct = Mash.new(node.run_state[:control_groups][:config][:structure])
   perm = {}

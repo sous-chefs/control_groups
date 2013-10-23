@@ -10,11 +10,16 @@ pkgs.each do |pkg_name|
   package pkg_name
 end
 
-service 'cgred' do
+cgred_resource = service 'cgred' do
+  provider Chef::Provider::Service::Upstart
+  supports :status => true, :start => true, :stop => true, :reload => true
   action :nothing
 end
 
-service 'cgconfig' do
+cgconfig_resource = service 'cgconfig' do
+  provider Chef::Provider::Service::Upstart
+  supports :status => true, :start => true, :stop => true, :reload => true
+  ignore_failure true
   action :nothing
 end
 
@@ -24,12 +29,12 @@ ruby_block 'control_groups[write configs]' do
     ControlGroups.rules_struct_init(node)
     c = Chef::Resource::File.new('/etc/cgconfig.conf', run_context)
     c.content ControlGroups.build_config(node.run_state[:control_groups][:config])
+    c.notifies :restart, cgconfig_resource, :immediately
     c.run_action(:create)
-    Chef::Resource::Service.new('cgconfig', run_context).run_action(:restart) if c.updated_by_last_action?
     r = Chef::Resource::File.new('/etc/cgrules.conf', run_context)
     r.content ControlGroups.build_rules(node.run_state[:control_groups][:rules][:active])
+    r.notifies :restart, cgred_resource, :immediately
     res = r.run_action(:create)
-    Chef::Resource::Service.new('cgred', run_context).run_action(:restart) if r.updated_by_last_action?
   end
   action :nothing
 end

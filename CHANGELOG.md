@@ -1,3 +1,7 @@
+v0.1.4
+======
+* Update service resource usage
+
 v0.1.2
 ======
 * Use ephemeral store to build configuration

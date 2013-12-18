@@ -2,6 +2,7 @@ pkgs = case node.platform_family
 when 'debian'
   %w(cgroup-bin libcgroup1)
 when 'rhel'
+  %w(libcgroup)
 else
   raise "Unsupported platform family encountered: #{node.platform_family}"
 end

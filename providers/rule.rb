@@ -1,10 +1,10 @@
 def load_current_resource
-  node.include_recipe 'control_group::default'
   ControlGroups.rules_struct_init(node)
   new_resource.user new_resource.name unless new_resource.user
 end
 
 action :create do
+  run_context.include_recipe 'control_groups::default'
 
   # create structure
   struct = {
@@ -23,7 +23,7 @@ action :create do
   end
 
   target = [new_resource.user, new_resource.command].compact.join(':')
-  
+
   node.run_state[:control_groups][:rules][:active][target] = struct
 end
 

@@ -7,7 +7,7 @@ Example usage:
 --------------
 
 ```ruby
-control_group_entry 'lackresources' do
+control_groups_entry 'lackresources' do
   memory('memory.limit_in_bytes' => '1M')
   cpu('cpu.shares' => 1)
 end

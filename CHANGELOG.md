@@ -1,3 +1,9 @@
+v0.1.6
+======
+* Add packages for rhel family
+* Fix typo in readme (thanks @jgoldschrafe)
+* Move recipe inclusion to action in provider and use run_context instead of node directly (thanks @jgoldschrafe)
+
 v0.1.4
 ======
 * Update service resource usage

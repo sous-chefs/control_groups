@@ -6,3 +6,8 @@ default[:control_groups][:mounts] = {
   :memory => '/sys/fs/cgroup/memory',
   :freezer => '/sys/fs/cgroup/freezer'
 }
+
+default['control_groups']['packages'] = value_for_platform_family(
+  'debian' => %w(cgroup-bin libcgroup1),
+  'rhel' => %w(libcgroup)
+)

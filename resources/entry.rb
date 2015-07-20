@@ -8,6 +8,7 @@ attribute :perm_admin_uid, :kind_of => String
 attribute :perm_admin_gid, :kind_of => String
 attribute :cpu, :kind_of => Hash
 attribute :cpuacct, :kind_of => Hash
+attribute :cpuset, :kind_of => Hash
 attribute :devices, :kind_of => Hash
 attribute :freezer, :kind_of => Hash
 attribute :memory, :kind_of => Hash

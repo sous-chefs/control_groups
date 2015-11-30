@@ -1,5 +1,5 @@
-Control Groups
-==============
+# Control Groups
+[![Cookbook Version](https://img.shields.io/cookbook/v/control_groups.svg)](https://supermarket.chef.io/cookbooks/control_groups)
 
 Manage control groups (cgroups) via chef!
 

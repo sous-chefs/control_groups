@@ -65,8 +65,6 @@ end
 service cgroups_config_service do
   provider Chef::Provider::Service::Upstart
   supports :status => true, :start => true, :stop => true, :reload => true, :restart => true
-  # This service is shit and won't restart properly most of the time, so we do the update manually. We really need it for reboot anyway
-  # Also, cgconfigparser is shit and won't run if a cgroup hierarchy is alreay mounted, so we need to unmount or delete the current cgroup hierarchy.
   # The restart flow is - Mount cgroup itself if it isn't already mounted, then unmount or delete (it's safe) any mounted cgroup components - then run cgconfigparser.
   restart_command '(grep -q /sys/fs/cgroup /proc/mounts || mount -t tmpfs -o uid=0,gid=0,mode=0755 cgroups /sys/fs/cgroup); (for d in $(ls /sys/fs/cgroup); do (umount "/sys/fs/cgroup/$d" || rm -rf "/sys/fs/cgroup/$d" || true) 2> /dev/null; done); (/usr/sbin/cgconfigparser -l /etc/cgconfig.conf)'
   action :nothing

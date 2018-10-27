@@ -8,8 +8,8 @@ action :create do
 
   # create structure
   struct = {
-    :controllers => new_resource.controllers,
-    :destination => new_resource.destination
+    controllers: new_resource.controllers,
+    destination: new_resource.destination,
   }
 
   dest = node.run_state[:control_groups][:config][:structure][struct[:destination]]
@@ -17,7 +17,7 @@ action :create do
 
   # check for controllers
   struct[:controllers].each do |cont|
-    unless(dest[cont])
+    unless dest[cont]
       raise "Invalid controller provided for rule (controller: #{cont})"
     end
   end

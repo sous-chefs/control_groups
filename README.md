@@ -1,6 +1,8 @@
 Control Groups
 ==============
 
+[![Cookbook Version](https://img.shields.io/cookbook/v/control_groups.svg?style=flat)](https://supermarket.chef.io/cookbooks/sysctl) [![CircleCI](https://circleci.com/gh/sous-chefs/control_groups.svg?style=svg)](https://circleci.com/gh/sous-chefs/control_groups) [![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Manage control groups (cgroups) via chef!
 
 Example usage:

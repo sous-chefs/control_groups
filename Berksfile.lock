@@ -1,7 +1,0 @@
-DEPENDENCIES
-  control_groups
-    path: .
-    metadata: true
-
-GRAPH
-  control_groups (0.1.6)

@@ -10,7 +10,7 @@ action :create do
   perm = {}
   %w(task admin).each do |type|
     %w(uid gid).each do |idx|
-      if(val = new_resource.send("perm_#{type}_#{idx}"))
+      if (val = new_resource.send("perm_#{type}_#{idx}"))
         perm[type] ||= {}
         perm[type][idx] = val
       end
@@ -31,4 +31,3 @@ end
 action :delete do
   # be lazy, do nothing \o/
 end
-

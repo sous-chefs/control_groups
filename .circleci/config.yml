@@ -1,14 +1,14 @@
 version: 2.1
 
 orbs:
-  kitchen: sous-chefs/kitchen@1.0.0
+  kitchen: sous-chefs/kitchen@2
 
 workflows:
   kitchen:
     jobs:
       - kitchen/danger:
           name: danger
-          context: Danger
-      - kitchen/lint:
-          name: lint
+          context: danger
+      - kitchen/delivery:
+          name: delivery
 

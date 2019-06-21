@@ -8,7 +8,7 @@ workflows:
     jobs:
       - kitchen/danger:
           name: danger
-          context: danger
+          context: Danger
       - kitchen/delivery:
           name: delivery
 

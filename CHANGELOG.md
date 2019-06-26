@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Changed testing to circleci
+* Corrected missing closing bracket in attributes file
 
 ## v0.1.6
 

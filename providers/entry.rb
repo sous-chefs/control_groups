@@ -20,7 +20,7 @@ action :create do
   grp_hsh['perm'] = perm unless perm.empty?
   # TODO: Check that mounts are available for these
   %w(cpu cpuacct cpuset devices freezer memory).each do |idx|
-    if(val = new_resource.send(idx))
+    if (val = new_resource.send(idx))
       grp_hsh[idx] = val
     end
   end

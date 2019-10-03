@@ -1,14 +1,33 @@
+---
+lint_and_unit: &lint_and_unit
+  - delivery
+  - danger
+  - lint-yaml
+  - lint-markdown
 version: 2.1
-
 orbs:
-  kitchen: sous-chefs/kitchen@1.0.0
-
+  kitchen: sous-chefs/kitchen@2
 workflows:
   kitchen:
     jobs:
+      - kitchen/yamllint:
+          name: lint-yaml
+      - kitchen/mdlint:
+          name: lint-markdown
       - kitchen/danger:
           name: danger
           context: Danger
-      - kitchen/lint:
-          name: lint
-
+      - kitchen/delivery:
+          name: delivery
+      - kitchen/dokken-single:
+          name: default-centos-7
+          suite: default-centos-7
+          requires: *lint_and_unit
+      - kitchen/dokken-single:
+          name: default-ubuntu-1404
+          suite: default-ubuntu-1404
+          requires: *lint_and_unit
+      - kitchen/dokken-single:
+          name: default-ubuntu-1604
+          suite: default-ubuntu-1604
+          requires: *lint_and_unit

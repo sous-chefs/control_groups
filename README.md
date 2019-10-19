@@ -31,7 +31,7 @@ the `lackresources` control group.
 
 ## Repository
 
-- Repository: https://github.com/hw-cookbooks/control_groups
+- Repository: <https://github.com/hw-cookbooks/control_groups>
 - IRC: Freenode @ #heavywater
 
 ## Contributors

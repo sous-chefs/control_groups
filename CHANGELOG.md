@@ -4,6 +4,8 @@
 
 * Changed testing to circleci
 * Corrected missing closing bracket in attributes file
+* Switched Circle CI orb to v2
+* Refactored hashes literals to Ruby 1.9
 
 ## v0.1.6
 

@@ -3,6 +3,8 @@
 ## Unreleased
 
 * Changed testing to circleci
+* Switched Circle CI orb to v2
+* Refactored hashes literals to Ruby 1.9
 
 ## v0.1.6
 

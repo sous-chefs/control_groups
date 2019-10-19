@@ -1,4 +1,3 @@
-
 default[:control_groups][:mounts] = {
   cpu: '/sys/fs/cgroup/cpu',
   cpuacct: '/sys/fs/cgroup/cpuacct',

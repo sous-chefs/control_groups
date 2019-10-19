@@ -1,4 +1,3 @@
----
 driver:
   name: vagrant
 
@@ -16,6 +15,7 @@ verifier:
 
 platforms:
   - name: centos-7
+  - name: fedora-27
   - name: ubuntu-14.04
   - name: ubuntu-16.04
 

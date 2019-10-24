@@ -9,6 +9,6 @@ source_url       'https://github.com/sous-chefs/swap'
 issues_url       'https://github.com/sous-chefs/swap/issues'
 chef_version     '>= 13'
 
-%w(ubuntu debian redhat centos suse opensuse opensuseleap scientific oracle amazon zlinux).each do |os|
+%w(ubuntu debian redhat centos suse opensuseleap scientific oracle amazon zlinux).each do |os|
   supports os
 end

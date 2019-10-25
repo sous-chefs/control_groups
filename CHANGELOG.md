@@ -4,7 +4,8 @@
 
 * Changed testing to circleci
 * Switched Circle CI orb to v2
-* Refactored hashes literals to Ruby 1.9
+* Refactored hashes literals to Ruby 1.9+ format
+* Removed allowed actions from resources at this is no longer necessary in Chef 12.5+
 
 ## v0.1.6
 

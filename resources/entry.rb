@@ -1,4 +1,3 @@
-actions :create, :delete
 default_action :create
 
 attribute :group, kind_of: String

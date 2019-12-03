@@ -44,5 +44,5 @@ ruby_block 'control_group_configs[notifier]' do
   block do
     Chef::Log.debug 'Sending delayed notification to cgroup config files'
   end
-  notifies :create, resources(ruby_block: 'control_groups[write configs]'), :delayed
+  notifies :create, 'ruby_block[control_groups[write configs]]', :delayed
 end

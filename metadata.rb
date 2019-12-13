@@ -8,6 +8,6 @@ source_url       'https://github.com/sous-chefs/control_groups'
 issues_url       'https://github.com/sous-chefs/control_groups/issues'
 chef_version     '>= 13'
 
-%w(ubuntu debian redhat centos suse opensuseleap scientific oracle amazon zlinux).each do |os|
+%w(ubuntu debian redhat centos suse opensuseleap scientific oracle amazon).each do |os|
   supports os
 end

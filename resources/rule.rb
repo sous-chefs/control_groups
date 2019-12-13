@@ -1,6 +1,36 @@
-default_action :create
+property :user,        String, name_property: true
+property :command,     String
+property :controllers, Array,  required: true
+property :destination, String, required: true
 
-attribute :user,        kind_of: String
-attribute :command,     kind_of: String
-attribute :controllers, kind_of: Array,  required: true
-attribute :destination, kind_of: String, required: true
+def load_current_resource
+  ControlGroups.rules_struct_init(node)
+end
+
+action :create do
+  run_context.include_recipe 'control_groups::default'
+
+  # create structure
+  struct = {
+    controllers: new_resource.controllers,
+    destination: new_resource.destination,
+  }
+
+  dest = node.run_state[:control_groups][:config][:structure][struct[:destination]]
+  raise "Invalid destination provided for rule (dest: #{struct[:destination]})" unless dest
+
+  # check for controllers
+  struct[:controllers].each do |cont|
+    unless dest[cont]
+      raise "Invalid controller provided for rule (controller: #{cont})"
+    end
+  end
+
+  target = [new_resource.user, new_resource.command].compact.join(':')
+
+  node.run_state[:control_groups][:rules][:active][target] = struct
+end
+
+action :delete do
+  # Nothing \o/
+end

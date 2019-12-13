@@ -1,6 +1,8 @@
+---
 driver:
   name: dokken
-  privileged: true # because Docker and SystemD/Upstart
+  privileged: true
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
   env: [CHEF_LICENSE=accept]
 
 transport:
@@ -8,35 +10,65 @@ transport:
 
 provisioner:
   name: dokken
-  product_name: chef
-  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
-  install_strategy: once
+  deprecations_as_errors: true
+
+verifier:
+  name: inspec
 
 platforms:
-  - name: debian-8
+  - name: amazonlinux
     driver:
-      image: dokken/debian-8
-      pid_one_command: /bin/systemd
+      image: dokken/amazonlinux
+      privileged: true
+      pid_one_command: /sbin/init
       intermediate_instructions:
-        - RUN /usr/bin/apt-get update
+        - RUN touch /etc/sysconfig/network
 
   - name: debian-9
     driver:
       image: dokken/debian-9
       pid_one_command: /bin/systemd
+      privileged: true
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+
+  - name: debian-10
+    driver:
+      image: dokken/debian-10
+      pid_one_command: /bin/systemd
+      privileged: true
       intermediate_instructions:
         - RUN /usr/bin/apt-get update
 
   - name: centos-7
     driver:
       image: dokken/centos-7
-      platform: rhel
+      privileged: true
       pid_one_command: /usr/lib/systemd/systemd
+      internediate_instructions:
+        - RUN touch /etc/fstab
+
+  - name: centos-8
+    driver:
+      image: dokken/centos-8
+      privileged: true
+      pid_one_command: /usr/lib/systemd/systemd
+      internediate_instructions:
+        - RUN touch /etc/fstab
+
+  - name: fedora-latest
+    driver:
+      image: dokken/fedora-latest
+      privileged: true
+      pid_one_command: /usr/lib/systemd/systemd
+      internediate_instructions:
+        - RUN touch /etc/fstab
 
   - name: ubuntu-16.04
     driver:
       image: dokken/ubuntu-16.04
       pid_one_command: /sbin/init
+      privileged: true
       intermediate_instructions:
         - RUN /usr/bin/apt-get update
 
@@ -44,5 +76,6 @@ platforms:
     driver:
       image: dokken/ubuntu-18.04
       pid_one_command: /bin/systemd
+      privileged: true
       intermediate_instructions:
         - RUN /usr/bin/apt-get update

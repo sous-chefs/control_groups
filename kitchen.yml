@@ -6,18 +6,22 @@ provisioner:
   product_name: chef
   product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   install_strategy: once
-
-client_rb:
-  treat_deprecation_warnings_as_errors: true
+  deprecations_as_errors: true
+  chef_license: accept-no-persist
 
 verifier:
   name: inspec
 
 platforms:
+  - name: amazonlinux-2
   - name: centos-7
-  - name: fedora-27
-  - name: ubuntu-14.04
+  - name: centos-8
+  - name: debian-9
+  - name: debian-10
+  - name: fedora-latest
+  - name: opensuse-leap-15
   - name: ubuntu-16.04
+  - name: ubuntu-18.04
 
 suites:
   - name: default

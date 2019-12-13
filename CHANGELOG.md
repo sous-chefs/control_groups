@@ -9,6 +9,9 @@
 * Refactored hashes literals to Ruby 1.9+ format
 * Removed allowed actions from resources at this is no longer necessary in Chef 12.5+
 * Updated notification syntax to the modern notifies syntax
+* Remove zlinux from the list of supported platforms
+* Add platform support logic for Amazon Linux and Fedora
+* Expand testing in the Kitchen configs to current platform releases
 
 ## v0.1.6
 

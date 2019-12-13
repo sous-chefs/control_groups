@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+* Convert from LWRPs to custom resources
+* Properly set name properties in the resources
 * Changed testing to circleci
 * Switched Circle CI orb to v2
 * Refactored hashes literals to Ruby 1.9+ format

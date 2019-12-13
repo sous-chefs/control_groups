@@ -11,10 +11,8 @@ class Chef
           raise "Unsupported platform family encountered: #{node['platform_family']}"
         end
       end
-
     end
   end
 end
-
 
 # enable `modprobe netprio_cgroup`

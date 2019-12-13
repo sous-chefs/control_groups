@@ -1,5 +1,3 @@
-
-
 action :install do
   package control_group_packages
 
@@ -13,9 +11,6 @@ action :install do
     ignore_failure true
     action :nothing
   end
-
-
-
 end
 
 action_class do

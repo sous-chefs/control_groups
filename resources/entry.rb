@@ -1,4 +1,4 @@
-property :group,           String
+property :group,           String, name_property: true
 property :perm_task_uid,   String
 property :perm_task_gid,   String
 property :perm_admin_uid,  String
@@ -12,7 +12,6 @@ property :extra_config,    Hash
 
 def load_current_resource
   ControlGroups.config_struct_init(node)
-  new_resource.group new_resource.name unless new_resource.group
 end
 
 action :create do

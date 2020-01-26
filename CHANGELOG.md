@@ -2,12 +2,15 @@
 
 ## Unreleased
 
-* Changed testing to circleci
-* Switched Circle CI orb to v2
+* Convert from LWRPs to custom resources
+* Properly set name properties in the resources
 * Refactored hashes literals to Ruby 1.9+ format
 * Removed allowed actions from resources at this is no longer necessary in Chef 12.5+
 * Updated notification syntax to the modern notifies syntax
-* Migrated to Github actions
+* Remove zlinux from the list of supported platforms
+* Add platform support logic for Amazon Linux and Fedora
+* Expand testing in the Kitchen configs to current platform releases
+* Migrated to Github actions for testing
 
 ## v0.1.6
 

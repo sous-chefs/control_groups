@@ -26,13 +26,7 @@ control_groups_rule 'someuser' do
 end
 ```
 
-This will restrict all processes created by `someuser` into
-the `lackresources` control group.
-
-## Repository
-
-- Repository: <https://github.com/hw-cookbooks/control_groups>
-- IRC: Freenode @ #heavywater
+This will restrict all processes created by `someuser` into the `lackresources` control group.
 
 ## Contributors
 

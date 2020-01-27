@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.1.6 (2020-01-26)
 
 * Convert from LWRPs to custom resources
 * Properly set name properties in the resources

@@ -1,7 +1,7 @@
 # Control Groups
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/control_groups.svg?style=flat)](https://supermarket.chef.io/cookbooks/control_groups)
-[![Build Status](https://img.shields.io/circleci/project/github/sous-chefs/control_groups/master.svg)](https://circleci.com/gh/sous-chefs/control_groups)
+[![CI State](https://github.com/sous-chefs/control_groups/workflows/ci/badge.svg)](https://github.com/sous-chefs/control_groups/actions?query=workflow%3Aci)
 [![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)

@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- Resolved failures in the recipe / resources to find the correct helper methods
+
 ## v0.1.6 (2020-01-26)
 
 * Convert from LWRPs to custom resources
@@ -10,7 +14,7 @@
 * Remove zlinux from the list of supported platforms
 * Add platform support logic for Amazon Linux and Fedora
 * Expand testing in the Kitchen configs to current platform releases
-* Migrated to Github actions for testing
+* Migrated to GitHub actions for testing
 
 ## v0.1.6
 

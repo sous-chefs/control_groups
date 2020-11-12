@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASED
+## v0.2.1 (2020-11-12)
 
 - Resolved failures in the recipe / resources to find the correct helper methods
 

@@ -13,14 +13,14 @@ end
 
 ruby_block 'control_groups[write configs]' do
   block do
-    ControlGroups.config_struct_init(node)
-    ControlGroups.rules_struct_init(node)
+    ::ControlGroups.config_struct_init(node)
+    ::ControlGroups.rules_struct_init(node)
     c = Chef::Resource::File.new('/etc/cgconfig.conf', run_context)
-    c.content ControlGroups.build_config(node.run_state[:control_groups][:config])
+    c.content ::ControlGroups.build_config(node.run_state[:control_groups][:config])
     c.notifies :restart, cgconfig_resource, :immediately
     c.run_action(:create)
     r = Chef::Resource::File.new('/etc/cgrules.conf', run_context)
-    r.content ControlGroups.build_rules(node.run_state[:control_groups][:rules][:active])
+    r.content ::ControlGroups.build_rules(node.run_state[:control_groups][:rules][:active])
     r.notifies :restart, cgred_resource, :immediately
     r.run_action(:create)
   end

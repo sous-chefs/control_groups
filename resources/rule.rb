@@ -4,7 +4,7 @@ property :controllers, Array,  required: true
 property :destination, String, required: true
 
 def load_current_resource
-  ControlGroups.rules_struct_init(node)
+  ::ControlGroups.rules_struct_init(node)
 end
 
 action :create do

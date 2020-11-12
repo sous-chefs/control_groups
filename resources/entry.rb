@@ -11,7 +11,7 @@ property :memory,          Hash
 property :extra_config,    Hash
 
 def load_current_resource
-  ControlGroups.config_struct_init(node)
+  ::ControlGroups.config_struct_init(node)
 end
 
 action :create do

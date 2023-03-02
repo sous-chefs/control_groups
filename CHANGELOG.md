@@ -1,5 +1,7 @@
 # Changelog
 
+## Unreleased
+
 ## 0.2.5 - *2023-03-02*
 
 - Remove delivery workflow

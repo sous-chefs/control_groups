@@ -15,6 +15,7 @@ Install and remove the libcgroup packages, service units, and generated configur
 |----------|------|---------|-------------|
 | `name` | String | `name` | Resource identity |
 | `mounts` | Hash | `ControlGroups.default_mounts` | Mount map written into `/etc/cgconfig.conf` |
+| `manage_runtime` | Boolean | `true` | When `true`, enables and starts the libcgroup systemd units. Set to `false` in cgroup-v2 test environments that cannot mount legacy controller hierarchies |
 
 ## Examples
 
@@ -28,5 +29,11 @@ control_groups_install 'default' do
     cpu: '/sys/fs/cgroup/cpu',
     memory: '/sys/fs/cgroup/memory'
   )
+end
+```
+
+```ruby
+control_groups_install 'default' do
+  manage_runtime false
 end
 ```

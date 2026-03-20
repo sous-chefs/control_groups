@@ -1,29 +1,54 @@
+---
 driver:
   name: vagrant
 
+transport:
+  max_wait_until_ready: 600
+  connection_retries: 10
+  connection_retry_sleep: 10
+
 provisioner:
-  name: chef_zero
+  name: chef_infra
   product_name: chef
   product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
+  channel: stable
   install_strategy: once
   deprecations_as_errors: true
-  chef_license: accept-no-persist
+  chef_license: accept
 
 verifier:
   name: inspec
+  sudo: true
 
 platforms:
-  - name: amazonlinux-2
-  - name: centos-7
-  - name: centos-8
-  - name: debian-9
-  - name: debian-10
-  - name: fedora-latest
-  - name: opensuse-leap-15
-  - name: ubuntu-16.04
-  - name: ubuntu-18.04
+  - name: ubuntu-24.04
+
+x-run_lists:
+  default: &default_run_list
+    - recipe[test::default]
+  entry: &entry_run_list
+    - recipe[test::entry]
+  rule: &rule_run_list
+    - recipe[test::rule]
+
+x-verifiers:
+  default: &default_verifier
+    inspec_tests:
+      - path: test/integration/default
+  entry: &entry_verifier
+    inspec_tests:
+      - path: test/integration/entry
+  rule: &rule_verifier
+    inspec_tests:
+      - path: test/integration/rule
 
 suites:
   - name: default
-    run_list:
-      - recipe[control_groups::default]
+    run_list: *default_run_list
+    verifier: *default_verifier
+  - name: entry
+    run_list: *entry_run_list
+    verifier: *entry_verifier
+  - name: rule
+    run_list: *rule_run_list
+    verifier: *rule_verifier

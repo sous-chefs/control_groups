@@ -23,13 +23,11 @@ jobs:
     strategy:
       matrix:
         os:
-          - "debian-9"
-          - "debian-10"
-          - "ubuntu-1604"
-          - "ubuntu-1804"
-          - "centos-7"
+          - "ubuntu-2404"
         suite:
           - "default"
+          - "entry"
+          - "rule"
       fail-fast: false
 
     steps:

@@ -1,0 +1,7 @@
+---
+name: entry
+title: Entry integration tests
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Validates control_groups_entry rendering
+version: 1.0.0

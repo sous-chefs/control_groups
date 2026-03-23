@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.16](https://github.com/sous-chefs/control_groups/compare/v0.2.15...v0.2.16) (2026-01-06)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#78](https://github.com/sous-chefs/control_groups/issues/78)) ([063087d](https://github.com/sous-chefs/control_groups/commit/063087dc2f1ca05a13ad5d7f71580314ee68418c))
+
 ## [0.2.15](https://github.com/sous-chefs/control_groups/compare/0.2.14...v0.2.15) (2025-10-15)
 
 

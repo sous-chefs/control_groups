@@ -4,18 +4,16 @@ Install and remove the libcgroup packages, service units, and generated configur
 
 ## Actions
 
-| Action | Description |
-|--------|-------------|
+| Action     | Description                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
 | `:install` | Installs packages, writes the config files, and enables the `cgconfig` and `cgred` services (default) |
-| `:remove` | Stops the services, deletes the config files, and removes installed packages |
+| `:remove`  | Stops the services, deletes the config files, and removes installed packages                          |
 
 ## Properties
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `name` | String | `name` | Resource identity |
-| `mounts` | Hash | `ControlGroups.default_mounts` | Mount map written into `/etc/cgconfig.conf` |
-| `manage_runtime` | Boolean | `true` | When `true`, enables and starts the libcgroup systemd units. Set to `false` in cgroup-v2 test environments that cannot mount legacy controller hierarchies |
+- `name`: `String`, defaults to `name`. Resource identity.
+- `mounts`: `Hash`, defaults to `ControlGroups.default_mounts`. Mount map written into `/etc/cgconfig.conf`.
+- `manage_runtime`: `Boolean`, defaults to `true`. When `true`, enables and starts the libcgroup systemd units. Set to `false` in cgroup-v2 test environments that cannot mount legacy controller hierarchies.
 
 ## Examples
 

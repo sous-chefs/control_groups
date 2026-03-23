@@ -21,7 +21,7 @@ This cookbook now targets the resource-oriented API only and is validated agains
 
 ## Source URLs
 
-- Debian package index: https://packages.debian.org/bookworm/libpam-cgroup
-- Ubuntu package index: https://packages.ubuntu.com/noble/admin/
-- Amazon Linux 2023 cgroups guidance: https://docs.aws.amazon.com/linux/al2023/ug/resource-limiting-raw-cgroups.html
-- Amazon Linux 2023 cgroup v2 note: https://docs.aws.amazon.com/linux/al2023/ug/cgroupv2.html
+- Debian package index: <https://packages.debian.org/bookworm/libpam-cgroup>
+- Ubuntu package index: <https://packages.ubuntu.com/noble/admin/>
+- Amazon Linux 2023 cgroups guidance: <https://docs.aws.amazon.com/linux/al2023/ug/resource-limiting-raw-cgroups.html>
+- Amazon Linux 2023 cgroup v2 note: <https://docs.aws.amazon.com/linux/al2023/ug/cgroupv2.html>

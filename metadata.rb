@@ -10,4 +10,5 @@ source_url       'https://github.com/sous-chefs/control_groups'
 issues_url       'https://github.com/sous-chefs/control_groups/issues'
 chef_version     '>= 15.3'
 
+supports 'debian', '>= 12.0'
 supports 'ubuntu', '>= 24.04'

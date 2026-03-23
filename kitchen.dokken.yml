@@ -12,6 +12,10 @@ provisioner:
   name: dokken
 
 platforms:
+  - name: debian-12
+    driver:
+      image: dokken/debian-12
+      pid_one_command: /bin/systemd
   - name: ubuntu-24.04
     driver:
       image: dokken/ubuntu-24.04

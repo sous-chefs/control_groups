@@ -21,6 +21,7 @@ verifier:
   sudo: true
 
 platforms:
+  - name: debian-12
   - name: ubuntu-24.04
 
 x-run_lists:

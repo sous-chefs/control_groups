@@ -23,6 +23,7 @@ jobs:
     strategy:
       matrix:
         os:
+          - "debian-12"
           - "ubuntu-2404"
         suite:
           - "default"

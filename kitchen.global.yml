@@ -15,4 +15,5 @@ verifier:
   name: inspec
 
 platforms:
+  - name: debian-12
   - name: ubuntu-24.04

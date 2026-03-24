@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/sous-chefs/control_groups/compare/v0.2.16...v0.3.0) (2026-03-24)
+
+
+### Features
+
+* Refactor Cookbook ([#85](https://github.com/sous-chefs/control_groups/issues/85)) ([f0d0619](https://github.com/sous-chefs/control_groups/commit/f0d06192b7c5a6c0bac1c8d523359c0eab493090))
+
+
+### Bug Fixes
+
+* **docs:** Ignore multiple blank lines ([#87](https://github.com/sous-chefs/control_groups/issues/87)) ([241c01f](https://github.com/sous-chefs/control_groups/commit/241c01f1f90f1d20ffa0641154b4ff299f058164))
+
 ## [0.2.16](https://github.com/sous-chefs/control_groups/compare/v0.2.15...v0.2.16) (2026-01-06)
 
 ### Bug Fixes

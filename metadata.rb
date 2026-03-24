@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name             'control_groups'
 maintainer       'Sous Chefs'
 maintainer_email 'help@sous-chefs.org'
@@ -6,8 +8,7 @@ description      'Provides and configures cgroups'
 version          '0.2.16'
 source_url       'https://github.com/sous-chefs/control_groups'
 issues_url       'https://github.com/sous-chefs/control_groups/issues'
-chef_version     '>= 13'
+chef_version     '>= 15.3'
 
-%w(ubuntu debian redhat centos suse opensuseleap scientific oracle amazon).each do |os|
-  supports os
-end
+supports 'debian', '>= 12.0'
+supports 'ubuntu', '>= 24.04'

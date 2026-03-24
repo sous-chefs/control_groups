@@ -23,20 +23,19 @@ jobs:
     strategy:
       matrix:
         os:
-          - "debian-9"
-          - "debian-10"
-          - "ubuntu-1604"
-          - "ubuntu-1804"
-          - "centos-7"
+          - "debian-12"
+          - "ubuntu-2404"
         suite:
           - "default"
+          - "entry"
+          - "rule"
       fail-fast: false
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
-      - name: Install Chef
-        uses: actionshub/chef-install@main
+        uses: actions/checkout@v6
+      - name: Install Cinc Workstation
+        uses: sous-chefs/.github/.github/actions/install-workstation@main
       - name: Dokken
         uses: actionshub/test-kitchen@main
         env:

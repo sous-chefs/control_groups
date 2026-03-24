@@ -1,36 +1,36 @@
+# frozen_string_literal: true
+
+provides :control_groups_rule
+unified_mode true
+
+use '_partial/_config'
+
 property :user,        String, name_property: true
 property :command,     String
-property :controllers, Array,  required: true
+property :controllers, Array,  required: true, coerce: proc { |value| Array(value).map(&:to_s) }
 property :destination, String, required: true
 
-def load_current_resource
-  ::ControlGroups.rules_struct_init(node)
+default_action :create
+
+action_class do
+  include ControlGroups::Helpers
+
+  def target
+    ControlGroups.build_target(new_resource.user, new_resource.command)
+  end
 end
 
 action :create do
-  run_context.include_recipe 'control_groups::default'
-
-  # create structure
-  struct = {
+  initialize_control_group_state(mounts: new_resource.mounts)
+  node.run_state[:control_groups][:rules][:active][target] = {
     controllers: new_resource.controllers,
     destination: new_resource.destination,
   }
-
-  dest = node.run_state[:control_groups][:config][:structure][struct[:destination]]
-  raise "Invalid destination provided for rule (dest: #{struct[:destination]})" unless dest
-
-  # check for controllers
-  struct[:controllers].each do |cont|
-    unless dest[cont]
-      raise "Invalid controller provided for rule (controller: #{cont})"
-    end
-  end
-
-  target = [new_resource.user, new_resource.command].compact.join(':')
-
-  node.run_state[:control_groups][:rules][:active][target] = struct
+  ensure_control_group_base_resources(manage_runtime: new_resource.manage_runtime)
 end
 
 action :delete do
-  # Nothing \o/
+  initialize_control_group_state(mounts: new_resource.mounts)
+  node.run_state[:control_groups][:rules][:active].delete(target)
+  ensure_control_group_base_resources(manage_runtime: new_resource.manage_runtime)
 end

@@ -8,6 +8,15 @@
 
 Manage control groups (cgroups) via chef!
 
+## Supported platforms
+
+- Debian 12
+- Ubuntu 24.04
+
+See [`LIMITATIONS.md`](LIMITATIONS.md) for the researched support policy and unsupported platforms.
+
+Current unit verification passes on this repository. The Kitchen suites run on Debian 12 and Ubuntu 24.04 with `manage_runtime false` because Dokken/cgroup-v2 containers cannot start the legacy libcgroup mount workflow. See [`LIMITATIONS.md`](LIMITATIONS.md) for the runtime caveat.
+
 ## Maintainers
 
 This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
@@ -15,13 +24,15 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 ## Example usage
 
 ```ruby
+control_groups_install 'default'
+
 control_groups_entry 'lackresources' do
-  memory('memory.limit_in_bytes' => '1M')
-  cpu('cpu.shares' => 1)
+  memory('memory.max' => '1048576')
+  cpu('cpu.max' => '10000 100000')
 end
 
 control_groups_rule 'someuser' do
-  controllers [:cpu, :memory]
+  controllers %w(cpu memory)
   destination 'lackresources'
 end
 ```

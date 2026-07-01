@@ -13,9 +13,9 @@ Manage control groups (cgroups) via chef!
 - Debian 12
 - Ubuntu 24.04
 
-See [`LIMITATIONS.md`](LIMITATIONS.md) for the researched support policy and unsupported platforms.
+See [`AGENTS.md`](AGENTS.md) for the researched support policy and unsupported platforms.
 
-Current unit verification passes on this repository. The Kitchen suites (`default`, `entry`, and `rule`) run on Debian 12 and Ubuntu 24.04 with `manage_runtime false` because Dokken/cgroup-v2 containers cannot start the legacy libcgroup mount workflow. See [`LIMITATIONS.md`](LIMITATIONS.md) for the runtime caveat.
+Current unit verification passes on this repository. The Kitchen suites (`default`, `entry`, and `rule`) run on Debian 12 and Ubuntu 24.04 with `manage_runtime false` because Dokken/cgroup-v2 containers cannot start the legacy libcgroup mount workflow. See [`AGENTS.md`](AGENTS.md) for the runtime caveat.
 
 ## Maintainers
 

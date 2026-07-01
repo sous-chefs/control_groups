@@ -49,7 +49,11 @@ suites:
     verifier: *default_verifier
   - name: entry
     run_list: *entry_run_list
+    provisioner:
+      named_run_list: entry
     verifier: *entry_verifier
   - name: rule
     run_list: *rule_run_list
+    provisioner:
+      named_run_list: rule
     verifier: *rule_verifier
